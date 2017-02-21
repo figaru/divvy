@@ -1,0 +1,76 @@
+<template name="userPosts">
+	<div class="user-post-left-col">
+		<!-- <div class="user-post-search">
+			<div class="input-field user-post-search-field">
+				<input type="text" name="" class="input-post-search" placeholder="Search post list...">
+			</div>
+		</div> -->
+		{{#each userPosts}}
+			<div class="user-post-tab js-user-post-tab" id="user-post-tab-{{_id}}">
+				{{#with getCategory data.categories}}
+					<div class="user-post-tab-cat" style="background-color: {{this.color}}">
+						<div>{{this.code}}</div>
+					</div>
+				{{/with}}
+				<div class="user-post-tab-title">{{data.title}}</div>
+			</div>
+		{{/each}}
+	</div>
+	<div class="user-post-right-col">
+		{{#with selectedPost}}
+			<div class="user-post-title">
+				<h5>{{data.title}}</h5>
+			</div>
+			<div class="user-post-tag">
+				{{#each getTags this.data.tags}}
+					<div class="chip" style="margin-top: 5px;">{{this.name}}</div>
+				{{else}}
+					No Tags
+				{{/each}}
+			</div>
+			{{#with getCategory data.categories}}
+				<div class="user-post-cat" style="background-color: {{color}}">
+					{{name}}
+				</div>
+			{{/with}}
+			<div class="user-post-stats">
+				<div class="user-post-stats-stat blue">
+					<div class="info">
+						<i class="material-icons">equalizer</i>
+						<div>Views<br>{{data.views}}</div>
+					</div>
+				</div>
+				<div class="user-post-stats-stat orange">
+					<div class="info">
+						<i class="material-icons">question_answer</i>
+						<div>Answers<br>{{countArray data.answers}}</div>
+					</div>
+				</div>
+				<div class="user-post-stats-stat green">
+					<div class="info">
+						<i class="material-icons">trending_up</i>
+						<div>Votes<br>{{#with voteCount data}} {{vote}} {{/with}}</div>
+					</div>
+				</div>
+				<div class="user-post-stats-stat red">
+					<div class="info">
+						<i class="material-icons">star</i>
+						<div>Favorites<br>{{countArray data.favorites}}</div>
+					</div>
+				</div>
+			</div>
+			<div class="user-post-details">
+				<!-- <div class="user-post-details-heading">
+					<div>Click to edit</div>
+				</div> -->
+				<div class="user-post-details-content">
+					<form class="js-user-post-details-submit">
+						<h5>Description</h5>
+						<textarea class="user-post-details-content-textarea js-user-post-textarea">{{data.description}}</textarea>
+						<button type="submit" class="global-submit disabled">Update Description</button>
+					</form>
+				</div>
+			</div>
+		{{/with}}
+	</div>
+</template>

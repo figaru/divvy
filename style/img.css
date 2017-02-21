@@ -1,0 +1,35 @@
+.avatar-image {
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    max-height: 50px;
+    max-width: 50px;
+    position: relative;
+}
+
+.large{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    max-height: none;
+    max-width: none;
+    position: relative;
+}
+
+
+img[src] {
+    content: initial;
+}
+img {
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-position: 50%;
+    display: inline-block;
+    content: url("data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==");
+}
+img {
+    vertical-align: middle;
+}
+img {
+    border: 0;
+}

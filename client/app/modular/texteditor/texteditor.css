@@ -1,0 +1,43 @@
+.text-editor{
+	width: 100%;
+	padding: 20px;
+	padding-left: 0px;
+	padding-right: 0px;
+	background-color: #fff;
+}
+
+.text-editor-nav{
+	position: relative;
+	height: 50px;
+	background-color: #f5f5f5;
+	border: 1px solid #ccc;
+	width: 100%;
+	display: inline-flex;
+}.text-editor-nav .split{
+	position: relative;
+	width: 50px;
+	height: 48px;
+	display: inline-block;
+}.text-editor-nav .item{
+	position: relative;
+	width: 50px;
+	height: 48px;
+	display: inline-block;
+	text-align: center;
+	cursor: pointer;
+}.text-editor-nav .item:hover{
+	background-color: #f9f9f9;
+}.text-editor-nav .item i{
+	font-size: 25px;
+	line-height: 50px;
+}
+
+.text-editor textarea{
+	position: relative;
+	width: 100%;
+	padding: 10px;
+	height: 250px;
+	border: 1px solid #ccc;
+	min-width: 100%;
+	max-width: 100%;
+}

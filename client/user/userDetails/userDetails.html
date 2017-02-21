@@ -1,0 +1,44 @@
+<template name="userDetails">
+	<div class="user-details-layout padding">
+		<div class="user-details-col-profile">
+			<div class="row text-center">
+				<img src="{{user.profile}}" class="avatar-image large">
+				<h5>{{user.fname}} {{user.lname}}</h5>
+			</div>
+			<div class="row">
+				<div class="js-chat-start">Send me a message</div>
+			</div>
+			<div class="row">
+				<div class="heading-row">Categories</div>
+				{{#each userCategories user.categories}}
+					<div class="category" style="background-color: {{this.color}}">{{this.name}}</div>
+				{{/each}}
+			</div>
+			<div class="row">
+				<div class="heading-row">skills</div>
+				{{#each getTags user.skills}}
+					<div class="chip" style="margin-top: 5px;">{{name}}</div>
+				{{/each}}
+			</div>
+			<div class="row">
+				<div class="heading-row">About me</div>
+				<p>{{user.description}}</p>
+			</div>
+		</div>
+		<div class="user-details-col-content">
+			<div class="row">
+				<h6>Last Activity: {{timeToDate user.updated}}</h6>
+			</div>
+			<!-- <div class="row">
+				<div class="user-details-tabcontrol">
+					<div class="user-details-tabcontrol-option user-details-tabcontrol-option-checked">Posts</div>
+					<div class="user-details-tabcontrol-option">Comments</div>
+				</div>
+			</div> -->
+			<div class="row">
+				<h5>Posts</h5>
+				{{> userDetailsPosts}}
+			</div>
+		</div>
+	</div>
+</template>

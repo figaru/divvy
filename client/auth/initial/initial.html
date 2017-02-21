@@ -1,0 +1,58 @@
+<template name="initial">
+	<div class="initial-page">
+		<div class="initial-header">
+			<h1>Edit Profile</h1>
+			<p>Replace any information below to update your profile</p><br>
+		</div>
+		<div class="initial-content">
+			<form id="initial-form">
+				<div class="input-field col s12">
+				  <!-- <i class="material-icons prefix small ">account_circle</i> -->
+				  <input id="input-fname" type="text" class="validate" required="required" value="{{user.fname}}">
+				  <label class="active" for="input-fname">First Name</label>
+				</div>
+				<div class="input-field col s12">
+				  <!-- <i class="material-icons prefix small ">account_circle</i> -->
+				  <input id="input-lname" type="text" class="validate" required="required" value="{{user.lname}}">
+				  <label class="active" for="input-lname">Last Name</label>
+				</div>
+				<div class="input-field col s12">
+				  <!-- <i class="material-icons prefix small ">account_circle</i> -->
+				  <input id="input-profile" type="text" class="validate" required="required" value="{{user.profile}}">
+				  <label class="active" for="input-profile">Profile(url)</label>
+				</div>
+
+				<div class="input-field col s12">
+					<h6>Categories</h6>
+					{{#each listCategories}}
+						{{#if isCat _id}}
+							<p><input type="checkbox" class="checkbox" name="category" id="checkbox{{_id}}" value="{{_id}}" checked="checked"> 
+							<label for="checkbox{{_id}}">{{name}}</label></p>
+						{{else}}
+							<p><input type="checkbox" class="checkbox" name="category" id="checkbox{{_id}}" value="{{_id}}"> 
+							<label for="checkbox{{_id}}">{{name}}</label></p>
+						{{/if}}
+					{{/each}}
+					<p><br></p>
+				</div>
+				{{> tagInput}}
+				<br>
+				<div class="input-field col s12">
+		          <textarea id="input-description" class="materialize-textarea">{{user.description}}</textarea>
+		          <label  class="active" for="input-description">Description</label>
+		        </div>
+				<!-- <div class="input-box-image">
+					<div class="placeholder">Upload Profile</div>
+					<input type='file' id="image" class="input-image">
+					<img id="myImg" src="#" alt="your image" style="display: none;" width=100 />
+				</div> -->
+				
+				<div class="initial-footer">	
+					<div class="input-submit">
+						<button type="submit" class="submit">Update Profile</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</template>

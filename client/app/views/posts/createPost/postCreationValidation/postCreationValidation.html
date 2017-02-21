@@ -1,0 +1,15 @@
+<template name="postCreationValidation">
+	<div class="create-post-full-col">
+		<div class="create-post-top-row">
+			<h5>Do any of these posts match your question?</h5>
+		</div>
+		<div class="create-post-center-row">
+			{{#each getRelation}}
+				{{> modularPost}}
+			{{/each}}
+		</div>
+		<div class="create-post-bottom-row">
+			<button type="submit" class="comment-submit js-validation-continue">No (continue)</button>
+		</div>
+	</div>
+</template>

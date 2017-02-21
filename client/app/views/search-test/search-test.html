@@ -1,0 +1,28 @@
+<template name="searchTest">
+	<div class="search">
+		<div class="search-box">
+			<div class="search-box-close">
+				<i class="material-icons js-search-close">close</i>
+			</div>
+			<div class="search-box-content">
+				<div class="search-content-input">
+					<div class="search-content-input-title">Search for Posts</div>
+					<div class="search-content-input-input">
+						<input type="text" class="js-search">
+					</div>
+				</div>
+				<div class="search-content-results">
+					{{#if searching}}
+						{{> cubeLoader}}
+					{{/if}}
+					{{#each getResults}}
+						<div class="js-search-item">
+							{{> postItem}}
+						</div>
+					{{/each}}
+				</div>
+			</div>
+		</div>
+		<div class="search-overlay"></div>
+	</div>
+</template>

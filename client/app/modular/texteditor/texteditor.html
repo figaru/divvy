@@ -1,0 +1,101 @@
+<template name="textEditor">
+	<div class="text-editor">
+		<div class="text-editor-nav">
+			<div class="item js-format-bold" name="bold"><i class="material-icons">format_bold</i></div>
+			<div class="item js-format-italic"><i class="material-icons">format_italic</i></div>
+			<div class="item js-format-underlined"><i class="material-icons">format_underlined</i></div>
+			<div class="split"></div>
+			<div class="item js-format-code"><i class="material-icons">code</i></div>
+			<div class="item js-format-quote"><i class="material-icons">format_quote</i></div>
+			<div class="item js-format-link"><i class="material-icons">insert_link</i></div>
+			<div class="split"></div>
+			<div class="item js-format-title"><i class="material-icons">title</i></div>
+			<div class="item js-format-bulleted"><i class="material-icons">format_list_bulleted</i></div>
+			<div class="item js-format-numbered"><i class="material-icons">format_list_numbered</i></div>
+		</div>
+		<textarea class="js-editor" id="ta" spellcheck="false"></textarea>
+		
+            <!-- <div class="formatted-text">
+    		  {{{getText}}}
+            </div> -->
+		<script>
+        $(document).ready(function() {
+            var $ta = $("#ta");
+            var $startIndex = $("#startIndex"), $endIndex = $("#endIndex");
+
+            function reportSelection() {
+                var sel = $ta.getSelection();
+            }
+
+            $(document).on("selectionchange", reportSelection);
+            $ta.on("keyup input mouseup textInput", reportSelection);
+
+            $ta.focus();
+
+            reportSelection();
+
+            $(".js-format-bold").click(function(e){
+            	$ta.surroundSelectedText("[bold] ", " [/bold]");
+            });
+
+            $(".js-format-italic").click(function(e){
+            	$ta.surroundSelectedText("[italic] ", " [/italic]");
+            });
+
+            $(".js-format-underlined").click(function(e){
+            	$ta.surroundSelectedText("[underline] ", " [/underline]");
+            });
+
+            $(".js-format-code").click(function(e){
+            	$ta.surroundSelectedText("[code] ", " [/code]");
+            });
+
+            $(".js-format-quote").click(function(e){
+            	$ta.surroundSelectedText("[quote] ", " [/quote]");
+            });
+
+            $(".js-format-title").click(function(e){
+            	$ta.surroundSelectedText("[title] ", " [/title]");
+            });
+
+            $(".js-format-link").click(function(e){
+            	$ta.surroundSelectedText("[link] ", " [/link]");
+            });
+
+             
+            $(".js-format-bulleted").click(function(e){
+                if($ta.extractSelectedText() == ""){
+                    $ta.surroundSelectedText("[list] \n [bullet] ", " [/bullet] \n[/list] ");
+                }else{
+                    $ta.surroundSelectedText("[bullet] ", " [/bullet]");
+                }
+            });
+
+            $(".js-format-numbered").click(function(e){
+                if($ta.extractSelectedText() == ""){
+                    $ta.surroundSelectedText("[list] \n [number] ", " [/number] \n[/list] ");
+                }else{
+                    $ta.surroundSelectedText("[number] ", " [/number]");
+                }
+            });
+
+            $(".js-editor").keyup(function(e){
+                if(e.keyCode == 13 && e.which == 13)
+                    $ta.surroundSelectedText("\n", "");
+            });
+        });
+
+
+
+
+        var setFocus = function(){
+        	$ta.focus();
+            // For IE, which always shifts the focus onto the button
+            window.setTimeout(function() {
+                $ta.focus();
+            }, 0);
+        }
+
+    </script>
+	</div>
+</template>

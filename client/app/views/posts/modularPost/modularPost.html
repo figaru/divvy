@@ -1,0 +1,29 @@
+<template name="modularPost">
+	<div class="modular-post-item">
+		{{#with getCategory data.categories}}
+			<div class="modular-post-item-cat" style="background-color: {{this.color}};">
+				<div>{{code}}</div>
+			</div>
+		{{/with}}
+		<div class="modular-post-item-title">
+			<div class="modular-post-item-title-heading">
+				<a href="/post/view/{{_id}}" class="js-close-hover">{{data.title}}</a>
+			</div>
+			<a href="/user/profile/{{data.userid}}">{{getUserName data.userid}}</a> | {{getDateDiff data.timestamp}}
+		</div>
+		<div class="modular-post-item-stats">
+			<div class="modular-post-item-stat">
+				<div class="item-stat-heading">Views</div>
+				<div class="item-stat-subheading">{{data.views}}</div>
+			</div>
+			<div class="modular-post-item-stat">
+				<div class="item-stat-heading">Answers</div>
+				<div class="item-stat-subheading">{{countArray data.answers}}</div>
+			</div>
+			<div class="modular-post-item-stat" style="border-right: 3px solid {{getCategoryColor data.categories}};">
+				<div class="item-stat-heading">Votes</div>
+				<div class="item-stat-subheading">{{#with voteCount data}} {{vote}} {{/with}}</div>
+			</div>
+		</div>
+	</div>
+</template>

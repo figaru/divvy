@@ -1,0 +1,27 @@
+<template name="faq">
+	<div class="faq-content">
+		<div class="faqDoc">
+			<div class="faq-title">FAQ</div>
+			<div class="faq-sub">Frequently Asked Questions</div>
+
+			<ul>
+				{{#each FAQ}}
+					<li class="faq-question">
+						<div class="question-title">{{question}}</div>
+						{{#with FAQpost}}
+							<div class="question-post">
+								<a href="/post/view/{{post._id}}">{{post.data.title}}</a>
+							</div>
+							<div class="question-solution">
+								<b>Top Solution:</b>
+								<div class="formatted-text">
+									{{{answer.data.answer}}}
+								</div>
+							</div>
+						{{/with}}
+					</li>
+				{{/each}}
+			</ul>
+		</div>
+	</div>
+</template>

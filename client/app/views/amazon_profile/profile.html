@@ -1,0 +1,55 @@
+<template name="profile">
+	<!-- {{#if loading}}
+		{{> loading}}
+	{{else}}
+	<input type="file" name="..." class="myFileInput">
+    {{#each images}}
+        <div>
+            <img src="{{this.url store='images'}}"/>
+            <img src="{{this.url store='thumbs'}}"/>
+        </div>
+        <p>Original name: {{this.name}}</p>
+		<p>Original extension: {{this.extension}}</p>
+		<p>Original type: {{this.type}}</p>
+		<p>Original size: {{this.size}}</p>
+    {{/each}}
+    {{/if}} -->
+     <h4 class="page-header">Upload a File to Amazon S3</h4>
+  {{> uploader}}
+  {{> files}}
+</template>
+
+<template name="uploader">
+  <div class="upload-area">
+    <form id="upload">
+      <p class="alert alert-success text-center">
+        <span>Click or Drag a File Here to Upload</span>
+        <input type="file">
+      </p>
+    </form>
+  </div>
+</template>
+
+<template name="files">
+  <div class="files">
+    {{#each files}}
+      {{> file}}
+    {{else}}
+      <p class="alert alert-warning">No files uploaded yet!</p>
+    {{/each}}
+  </div>
+</template>
+
+<template name="file">
+  <div class="file">
+    <div class="preview">
+      <a href="{{url}}" target="_blank"></a>
+      {{#if isImage url}}
+        <img src="{{url}}" alt="{{url}}">
+      {{else}}
+        <i class="fa fa-file-o"></i>
+      {{/if}}
+    </div>
+    <input type="text" class="form-control" value="{{url}}">
+  </div>
+</template>

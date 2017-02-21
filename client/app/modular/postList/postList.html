@@ -1,0 +1,23 @@
+<template name="postList">
+	<div class="post-module-layout">
+		<div class="post-module-cat">
+			<div class="post-module-cat-layout">
+				{{#with getCategory data.categories}}
+					<h2 class="post-module-title-cat" style="background-color: {{this.color}};">
+						{{this.code}}
+					</h2>
+				{{/with}}
+			</div>
+		</div>
+		<div class="post-module-info">
+			<a href="/post/view/{{_id}}" class="js-post-link"><h5>{{data.title}}</h5></a>
+			<ul>
+				<li><span class="glyphicon glyphicon-time"></span>{{getDateDiff data.timestamp}}</li>
+				<li><span class="glyphicon glyphicon-user"></span>{{{getUserName data.userid}}}</li>
+				<li><span class="glyphicon glyphicon-comment"></span>{{countArray data.answers}} answers</li>
+			</ul>
+		</div>
+		<div class="post-module-comments"><!-- <span class="glyphicon glyphicon-comment"></span> --></div>
+		<div class="post-module-profile"><img src="{{getUserImage data.userid}}"></div>
+	</div>
+</template>

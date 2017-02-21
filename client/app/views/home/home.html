@@ -1,0 +1,48 @@
+<template name="home">
+	<div class="home-layout">
+		<!-- <div class="home-nav">
+			<div class="home-nav-tab js-tab-trending home-nav-tab-checked"><i class="material-icons">trending_up</i>Trending</div>
+			<div class="home-nav-tab js-tab-recent"><i class="material-icons">access_time</i>Recent</div>
+			<div class="home-nav-tab js-tab-best"><i class="material-icons">star</i>Best</div>
+			<div class="home-nav-tab js-tab-daily"><i class="material-icons">today</i>Daily</div>
+		</div> -->
+		<div class="home-content">
+			<div class="section-heading">
+				<i class="material-icons">polymer</i>
+				<div>Related</div>
+			</div>
+			<ul class="grid">
+				{{#if hasPosts}}
+					{{#each getPosts.related}}
+						{{> postItem}}
+					{{/each}}
+				{{/if}}
+			</ul>
+			<div class="section-heading">
+				<i class="material-icons">trending_up</i>
+				<div>Trending</div>
+			</div>
+			<ul class="grid">
+				{{#if hasPosts}}
+					{{#each getPosts.trending}}
+						{{> postItem}}
+					{{/each}}
+				{{/if}}
+			</ul>
+			<div class="section-heading">
+				<i class="material-icons">star</i>
+				<div>Popular</div>
+			</div>
+			<ul class="grid">
+				{{#if hasPosts}}
+					{{#each getPosts.popular}}
+						{{> postItem}}
+					{{/each}}
+				{{/if}}
+			</ul>
+		</div>
+	</div>
+	<!-- <div class="home-layout-right">
+		{{>leaderboard}}
+	</div> -->
+</template>

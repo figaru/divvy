@@ -1,0 +1,34 @@
+<template name="relatedPosts">
+	{{#each getResult}}
+		{{> relatedPostItem}}
+	{{else}}
+		<div class="related-post-item js-related-post-item">
+			<p>No related posts available.</p>
+		</div>
+	{{/each}}
+</template>
+
+<template name="relatedPostItem">
+	<div class="related-post-item js-related-post-item">
+		<a href="/post/view/{{post._id}}">{{post.data.title}}</a>
+		<p>{{post.data.description}}</p>
+		<div class="stats">
+			<div class="stat">
+				<i class="material-icons">equalizer</i>
+				<div>{{post.data.views}}</div>
+			</div>
+			<div class="stat">
+				<i class="material-icons">question_answer</i>
+				<div>{{countArray post.data.answers}}</div>
+			</div>
+	<!-- 			<div class="stat">
+				<i class="material-icons">trending_up</i>
+				<div>{{#with voteCount data}} {{vote}} {{/with}}</div>
+			</div> -->
+			<div class="stat">
+				<i class="material-icons">star</i>
+				<div>{{countArray post.data.favorites}}</div>
+			</div>
+		</div>
+	</div>
+</template>

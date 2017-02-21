@@ -1,0 +1,102 @@
+<template name="userChat">
+	<div class="user-chat-left-col">
+		{{#if searchFocus}}
+			<div class="user-chat-search-toggled">
+				<input type="text" class="user-chat-search-input js-chat-search-input" placeholder="Search for a user..." />
+				<div class="js-user-chat-search-close"><i class="material-icons">close</i></div>
+			</div>
+		{{else}}
+			<div class="user-chat-search">
+				<div class="user-chat-search-toggle js-user-chat-search-toggle">
+					<i class="material-icons noselect">search</i> 
+					<div class="noselect">New Chat</div>
+				</div> 				
+			</div>
+		{{/if}}
+		{{#if searchFocus}}
+			{{> chatSearchResults}}
+		{{else}}
+			{{#each getChats}}
+				<div class="user-chat-tab js-user-chat">
+					<div class="user-chat-tab-profile">
+						{{#with getReceiver involved}}
+							<img src="{{getUserImage this}}">
+						{{/with}}
+					</div>
+					<div class="user-chat-tab-content">
+						<div class="user-chat-tab-content-heading">
+							{{#with getReceiver involved}}
+								<div class="user-chat-tab-content-heading-name">{{{getUserName this}}}</div>
+							{{/with}}
+							<div class="user-chat-tab-content-heading-timestamp">{{getDateDiff updated}}</div>
+						</div>
+						{{getLastMessage _id}}
+					</div>
+				</div>
+			{{else}}
+				<p style="text-align: center; padding: 20px; color: #ccc;">You have no chats open</p>
+			{{/each}}
+		{{/if}}
+	</div>
+	<div class="user-chat-right-col">
+		{{#if selectedChat}}
+			<div class="user-chat-message-nav">
+				
+			</div>
+			<div class="user-chat-message-board">
+				<ul class="chat-ul">
+					{{#each getMessages}}
+						{{#if messageOrder this}}
+							<li class="chat-message-receiver">
+								<div class="chat-message-receiver-profile">
+									<img src="{{getUserImage sender}}">
+								</div>
+								<div class="chat-message-receiver-text">
+									{{message}}
+								</div>	
+								<div class="chat-message-receiver-timestamp">{{getDateDiff timestamp}}</div>
+							</li>
+						{{else}}
+							<li class="chat-message-sender">
+								<div class="chat-message-sender-profile">
+									<img src="{{getUserImage receiver}}">
+								</div>
+								<div class="chat-message-sender-text">
+									{{message}}
+								</div>
+								<div class="chat-message-sender-timestamp">{{getDateDiff timestamp}}</div>
+							</li>
+						{{/if}}
+					{{/each}}
+
+				</ul>
+			</div>
+			<div class="user-chat-message-input">
+				<textarea type="text" placeholder="Message..." class="chat-message-input js-chat-message-input"></textarea>
+				<div class="send-button js-send-button">
+					<i class="material-icons">send</i>
+				</div>
+			</div>
+		{{else}}
+			<div class="chatscreen-pane pane-artwork">
+				<img src="/images/bubble.png">
+			</div>
+		{{/if}}
+	</div>
+</template>
+
+<template name="chatSearchResults">
+	{{#each getResult}}
+		<div class="chat-search-result-item js-search-result-chat-item">
+			<div class="chat-search-result-item-profile">
+				<img src="{{profile}}">
+			</div>
+			<div class="chat-search-result-item-content">
+				<div class="chat-search-result-item-content-heading">
+					<div class="chat-search-result-item-content-heading-name">{{fname}} {{lname}}</div>
+				</div>
+				{{{getUserStatus userid}}}
+			</div>
+		</div>
+	{{/each}}
+</template>

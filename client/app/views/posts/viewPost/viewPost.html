@@ -1,0 +1,161 @@
+<template name="viewPost">
+		<div class="view-post-left-col">
+			<div class="row">
+				<div class="col s12 padding-top-bottom">
+					<div class="col s1 noMargin">
+						<div class="vote-post">
+							<i class="material-icons js-up-vote up">arrow_drop_up</i>
+							<span>{{#with voteCount post.data}} <div style="color: {{color}}">{{vote}}</div> {{/with}}</span>		
+							<i class="material-icons js-down-vote down">arrow_drop_down</i>
+						</div>		
+  						<div class="favorite-post">
+  							{{{getFavorites post.data.favorites}}}
+  						</div>
+					</div>
+					<div class="col s11 noMargin">
+						<div class="col s9">
+							<h5>{{post.data.title}}</h5>
+							<h6>Created on: {{timeToDate post.data.timestamp}} | {{getDateDiff post.data.timestamp}}</h6>
+							<div class="category-box">
+								{{#with getCategory post.data.categories}}
+									<div class="category" style="background-color: {{this.color}}">{{this.name}}</div>
+								{{/with}}
+							</div>
+						</div>
+						<div class="col s3">
+							<h6>Views</h6>
+							<h5>{{post.data.views}}</h5>
+							<h6>Creator</h6>
+							<h5>	
+							  <div class="chip" style="background-color: transparent; color: #000;">
+							    <img src="{{getUserImage post.data.userid}}" alt="Contact Person">
+							    <a href="/user/details/{{post.data.userid}}">{{getUserName post.data.userid}}</a>
+							  </div>
+							</h5>
+						</div>
+						<div class="col s12">
+							<br>
+							<div class="formatted-text">
+								{{{post.data.description}}}
+							</div>
+							<br>
+							<div class="tag-box">
+								{{#each getTags post.data.tags}}
+									<div class="chip" style="margin-top: 5px;">{{this.name}}</div>
+								{{else}}
+									No Tags
+								{{/each}}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col s12 noMargin padding-top">
+					<h5>Answers</h5>
+					<div class="divider"></div>
+				</div>
+				<div class="answers-layout">
+					{{#each getAnswers post.data.answers}}
+						{{> postAnswer}}
+					{{else}}
+						<div class="col s12 padding-top-bottom">No answers yet... be the first!</div>
+					{{/each}}
+					<form class="js-form-answer">
+						<div class="col s12">
+							<h5>Leave an answer</h5>
+							<div class="divider"></div>
+							<!-- <textarea class="answer-textarea" id="textarea-answer" placeholder="Suggest a solution for this post..." required="required"></textarea> -->
+
+							{{> textEditor}}
+
+							<div class="formatted-text">
+								{{{getEditorText}}}
+							</div>
+							
+							<div class="input-submit">
+								<button type="submit" class="answer-submit">Submit your answer</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="view-post-right-col">
+			<div class="right-col-section">
+				<div class="heading">Related</div>
+				{{> yield "related"}}
+			</div>
+		</div>
+</template>
+
+<template name="postAnswer">
+	<div class="col s12 padding-top-bottom">
+		{{#if isSolution}}
+			<div class="col s12">
+				<div class="is-solution">
+					<i class="material-icons">verified_user</i>
+					<div>This answer has been archived as a solution</div>
+				</div>
+			</div>
+		{{/if}}
+		<div class="col s1 noMargin">
+			<div class="vote-post">
+				<i class="material-icons js-up-vote-answer up">arrow_drop_up</i>
+				<span>{{#with voteCount data}} <div style="color: {{color}}">{{vote}}</div> {{/with}}</span>		
+				<i class="material-icons js-down-vote-answer down">arrow_drop_down</i>
+			</div>
+			<!-- <div class="js-remove-answer">remove</div> -->
+			{{#if isOwner postOwner}}
+				{{#if isSolution}}
+				{{else}}
+					<div class="col s12">
+						<div class="answer-solution js-set-solution">
+							<i class="material-icons">verified_user</i>
+						</div>
+					</div>
+				{{/if}}
+			{{/if}}
+		</div>
+		<div class="col s11 noMargin">
+			<div class="col s11">
+				<h6>{{getDateDiff data.timestamp}}</h6>
+				<div class="formatted-text">
+					{{{data.answer}}}
+				</div>
+			</div>
+			<div class="col s1 noMargin answer-col-profile">
+				<div class="answer-profile">
+					<img src="{{getUserImage data.userid}}">
+					{{#with getCategory data.categories}}
+						<div class="answer-profile-badge" style="background-color: {{this.color}};">{{this.code}}</div>
+					{{/with}}
+				</div>
+			</div>
+			<div class="col s12">
+				<ul class="collection answer-comment-ul">
+					{{#each getComments data.comments}}
+						<li class="collection-item avatar answer-comment-li" style="min-height: 63px !important;">
+					      <img src="{{getUserImage data.userid}}" alt="" class="circle">
+					      <div><a href="/user/details/{{data.userid}}">{{getUserName data.userid}}</a> - {{getDateDiff data.timestamp}}</div>
+					      <p class="margin-padding-auto">
+					      	{{data.comment}}
+					      </p>
+					    </li>
+				    {{/each}}
+				    <div class="">
+					    <form class="js-comment-post">
+							<div class="col s12 noPadding">
+								<textarea class="comment-textarea" id="comment-textarea" placeholder="Suggest a solution for this post..." required="required"></textarea>
+								<div class="input-submit">
+									<button type="submit" class="comment-submit">Comment</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- <div class="col s12"><div class="divider"></div></div> -->
+</template>

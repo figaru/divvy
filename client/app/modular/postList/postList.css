@@ -1,0 +1,80 @@
+.post-module-layout{
+	width: 100%;
+	max-height: 80px;
+	position: relative;
+	float: left;
+	margin-bottom: 20px;
+}
+
+.post-module-cat{
+	width: 80px;
+	height: 100%;
+	float: left;
+	position: relative;
+}
+
+.post-module-cat-layout{
+	width: 100%;
+	min-height: 100%;
+}
+
+.module-cat-icon{
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
+	position: relative;
+}
+
+h2.post-module-title-cat{
+	font-size: 34px;
+	color: #fff !important;
+	text-align: center;
+	line-height: 78px;
+	margin: 0 0 6px 0 !important;
+}
+
+.post-module-info{
+	width: calc(100% - 240px);
+	float: left;
+	height: 80px;
+	padding: 6px;
+}
+
+.post-module-info li{
+	float: left;
+	color: #aaaaaa;
+	margin-right: 10px !important;
+}
+
+.post-module-info li span{
+	position: relative;
+	font-size: 11px;
+	margin-right: 2px !important;
+	top: 2px;
+}
+
+h2.post-module-title-post{
+	color: #1d1f2d;
+	font-size: 24px;
+	font-weight: 300 !important;
+	margin: 0 0 6px 0 !important;
+}
+
+.post-module-profile{
+	width: 80px;
+	height: 80px;
+	float: left;
+	position: relative;
+}
+
+.post-module-profile img{
+	height: 40px;
+	width: 40px;
+	border-radius: 100%;
+}
+.post-module-comments{
+	width: 80px;
+	height: 80px;
+	float: left;
+	position: relative;
+}

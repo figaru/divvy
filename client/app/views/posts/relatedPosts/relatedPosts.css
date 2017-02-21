@@ -1,0 +1,40 @@
+.related-post-item{
+	width: 100%;
+	height: auto;
+	background-color: #fff;
+	border-bottom: 1px solid #f5f5f5;
+	position: relative;
+}
+
+.related-post-item a{
+	font-size: 14px;
+	font-weight: 500;
+}
+.related-post-item p{
+	height: 25px;
+	max-height: 40px;
+	position: relative;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 12px;
+}
+
+.related-post-item .stats{
+    position: relative;
+}.related-post-item .stats .stat{
+    position: relative;
+	width: auto;
+	height: auto;
+	display: inline-block;
+	margin-right: 5px;
+	color: #999;
+}.related-post-item .stats .stat i{
+    float: left;
+    font-size: 14px;
+    line-height: 16px;
+    margin-right: 2px;
+}.related-post-item .stats .stat div{
+    float: left;
+    font-size: 12px;
+}

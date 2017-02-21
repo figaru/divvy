@@ -1,0 +1,78 @@
+.create-post-left-col{
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 auto;
+	-ms-flex: 0 0 auto;
+	flex: 0 0 auto;
+	width: 50%;
+	padding: 20px;
+	overflow: hidden;
+	overflow-y: auto;
+	background-color: #fff;
+
+}
+
+.create-post-full-col{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 1 auto;
+	-ms-flex: 1 1 auto;
+	flex: 1 1 auto;
+	padding: 20px;
+	background-color: #fff;
+}
+
+.create-post-top-row{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 1 auto;
+	-ms-flex: 1 1 auto;
+	flex: 1 1 auto;
+	height: 50px;
+}
+.create-post-center-row{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 1 auto;
+	-ms-flex: 1 1 auto;
+	flex: 1 1 auto;
+	height: calc(100% - 100px);
+}
+.create-post-bottom-row{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 1 auto;
+	-ms-flex: 1 1 auto;
+	flex: 1 1 auto;
+	height: 50px;
+	text-align: right;
+}
+
+.create-post-right-col{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 1 auto;
+	-ms-flex: 1 1 auto;
+	flex: 1 1 auto;
+	background-color: #fff;
+	padding: 20px;
+	border-left: 1px solid #f5f5f5;
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+
+.post-create-check-rules{
+	position: relative;
+	text-align: left;	width: 100%;
+	height: 100%;
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.post-create-check-input{
+	position: relative;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

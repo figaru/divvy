@@ -1,0 +1,19 @@
+<template name="tagInput">
+	<div class="input-field col s12">
+	  <!-- <i class="material-icons prefix small ">account_circle</i> -->
+	  <input id="input-tag" type="text" class="validate js-input-post-tags">
+	  <label for="input-tag">Tags</label>
+	</div>
+	<div class="input-box">
+		<div class="tag-box">
+			{{#each listTags}}
+				<div class="chip" style="margin-top: 5px;">
+					{{this}}
+					<i class="material-icons js-tag-remove">close</i>
+				</div>
+			{{else}}
+				<p>Type a tag and press enter.</p>
+			{{/each}}
+		</div>
+	</div>
+</template>

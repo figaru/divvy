@@ -1,0 +1,37 @@
+<template name="postItem">
+	<li class="module">
+		<div class="module-content">
+			<a href="/post/view/{{_id}}" class="title js-post">{{data.title}}</a>
+			{{#if solved}}
+				<div class="solved">
+					<i class="material-icons solved">verified_user</i>
+					<div>Solution Approved</div>
+				</div>
+			{{/if}}
+			<p class="description">{{data.description}}</p>
+		</div>
+		<div class="module-cat">
+			{{#with getCategory data.categories}}
+				<div class="category" style="background-color: {{this.color}}">{{this.name}}</div>
+			{{/with}}
+		</div>
+		<div class="stats">
+			<div class="stat">
+				<i class="material-icons">equalizer</i>
+				<div>{{data.views}}</div>
+			</div>
+			<div class="stat">
+				<i class="material-icons">question_answer</i>
+				<div>{{countArray data.answers}}</div>
+			</div>
+<!-- 			<div class="stat">
+				<i class="material-icons">trending_up</i>
+				<div>{{#with voteCount data}} {{vote}} {{/with}}</div>
+			</div> -->
+			<div class="stat">
+				<i class="material-icons">star</i>
+				<div>{{countArray data.favorites}}</div>
+			</div>
+		</div>
+	</li>
+</template>

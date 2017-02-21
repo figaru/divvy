@@ -1,0 +1,141 @@
+<template name="howto">
+	<div class="howto-nav">
+		<div class="heading">Divvy Guide</div>
+		<ul>
+			<li class="heading">Introduction</li>
+
+			<li class="js-li" id="whatis">What is divvy?</li>
+			<li class="js-li" id="quickstart">Quick Start</li>
+			<li class="js-li" id="resources">Divvy Resources</li>
+			<li class="js-li" id="whatisthisguide">What is this guide?</li>
+			<li class="js-li" id="guidedevelopment">Guide Development</li>
+		</ul>
+		<ul>
+			<li class="heading">Getting Started</li>
+
+			<li class="js-li" id="landingpage">Landing Page</li>
+			<li class="js-li" id="creatingaccount">Creating an Account</li>
+			<li class="js-li" id="loggingin">Logging In</li>
+			<li class="js-li" id="creatingpost">Creating a Post</li>
+			<li class="js-li" id="downloading">Downloading the app</li>
+		</ul>
+		<ul>
+			<li class="heading">Using the System</li>
+
+			<li>Creating a post</li>
+			<li>Searching</li>
+			<li>Commenting/Answering</li>
+			<li>Messaging</li>
+			<li>Notifications</li>
+			<li>Statistics</li>
+		</ul>
+		<ul>
+			<li class="heading">Rules</li>
+
+			<li>Language</li>
+			<li>Privacy</li>
+			<li>Conditions</li>
+		</ul>
+	</div>
+	<div class="howto-content">
+		{{> introduction}}
+		{{> gettingStarted}}
+		{{> usingTheSystem}}
+	</div>
+</template>
+
+
+<template name="introduction">
+	<div class="howtoDoc">
+		<div class="title-page">Introduction</div>
+		<p>This is the guide for using Divvy, a full-stack web-based system for companies to share knowledge within as quickly and efficient as possible.</p>
+
+		<h2 id="idwhatis">What is divvy?</h2>
+		<p>Divvy is a web-based online system developed to allow connection within a company. It allows for fast problem related communication within employees while also allowing for shared resources and knowledge within.</p><br>
+		<p>With the divvy system, it is now possible to communicate directly to another employee with our chat system but also allowing the possibility to post issues that can be later answered by other people from all departments within. The solved issues are then recorded as documentation so that if the problem re-occures, it can be retrieved and show to the user as a solution</p>
+
+		<h2 id="idquickstart">Quick Start</h2>
+		<p>Divvy supports all browsers!</p><br>
+		<p>The divvy system now offers an IOS and Android application. <a>Download official apps here!</a></p><br>
+		<p>To start using the system... it is as simple as:</p><br>
+		<ul class="bullet">
+			<li>Accessing the site and <a href="/register">registering an account.</a></li>
+			<li>Sign in using your account or facebook <a href="/login">here.</a></li>
+		</ul>
+
+		<h2 id="idresources">Divvy Resources</h2>
+		<p>As the divvy system is still recently new, resources are limited so we suggest that if you run into issues or any kind of disagreement please dont hesitate to contact us.</p><br>
+		<p>We are always open for suggestions and improvments... please tell us what you would like to see, what would make your experience and others more pleasent.</p><br>
+		<p><a href="/contact">Contact us here.</a></p>
+
+		<h2 id="idwhatisguide">What is this Guide?</h2>
+		<p>This is a set of articles outlining opinions on best-practice using the Divvy system. Our aim is to cover patterns that we believe make out the system so that you the user can have the best experience and practice using the system to its furthest potential.</p><br>
+
+		<p>Nothing in this guide is required to user the system, other than the basic rules and registering. You can certainly use the system in ways that contradict the principles and patterns of the guide. However, the guide is an attempt to document best practices and community conventions, so we hope that the majority of the Divvy community will benefit from adopting the practices documented here.</p>
+
+		<h2 id="idguidedevelopment">Guide Development</h2>
+		<p>The decisions made and practices outlined in the guide must necessarily be opinionated. Certain best practices will be highlighted and other valid approaches ignored. We aim to reach community consensus around major decisions but there will always be other ways to solve problems when using the system. We believe it’s important to know what the “standard” way to solve a problem is before branching out to other options. If an alternate approach proves itself superior, then it should make its way into a future version of the guide.</p>
+	</div>
+</template>
+
+<template name="gettingStarted">
+	<div class="howtoDoc">
+		<div class="title-page">Getting Started</div>
+		<p>The getting started section of this guide will help you the user to get acquainted with our system, our plan is to teach you the very basic of using divvy the correct way. This system will only remain effective if users like you, use the system the way it was intended to.</p>
+
+		<h2 id="idlandingpage">Landing page</h2>
+		<p>Initial when accessing the divvy website you will be directed to the landing home page. This page will appear when you are not logged in with a user account. At the landing page you have a menu option where you will be able to access the about, guide, FAQ and knowledge center pages without the need to sign in to an account.</p><br>
+
+		<p>In our landing page you will have the option to reirect to the sign up or the registration pages. The landing page also contains a short description of the idea and the goal of the system, to help you or any other user to get an idea of the point of such system.</p>
+
+		<img src="/images/guide/landing.png" class="howtoDoc-img">
+
+		<h2 id="idcreatingaccount">Creating an Account</h2>
+		<p>If you are looking to use the system to help yourself and others, you will need to first register an account <b>*registration not required with service (social media) login</b>. To register an account just follow the link to the registration page, or <a href="/signup">click here.</a></p><br>
+
+		<p>You will need to fill up some basic details about your self, such as:</p><br>
+		<ul class="bullet">
+			<li>First and Last name</li>
+			<li>Email Address</li>
+			<li>Profile picture</li>
+			<li>Description</li>
+			<li>Category (What your personal experience is related too)</li>
+			<li>Skills (as tags)</li>
+			<li>Short Description</li>
+		</ul>
+		<br>
+
+		<img src="/images/guide/signup.png" class="howtoDoc-img">
+
+		<p>Initially these details might seem pointless to you, but we use such details for our ranking algorythms to suggest the best possible information to you and others. In the end, information is only usefull to the user if it means something and is related to the users ideas and interests.</p><br>
+
+		<p class="important">* All details entered remain private and will not be shared to anyone inside or outside divvy. We protect your rights as a user and your privacy as a human being.</p>
+
+		<h2 id="idloggingin">Logging in</h2>
+		<p>If you have an account created, loggin in is a breeze. We also offer the opportunity to sign in with you favorite social media websites. This allows for a quick and secure access to our system without the need to type in your credidentials or even registering an account beforehand.</p><br>
+
+		<p>To sign in to your account simply follow the sign in link of the landing page and you will be redirected to the login page where you may enter your details.</p><br>
+
+		<img src="/images/guide/signin.png" class="howtoDoc-img">
+
+		Once logged in you will remain logged in without the need to continuasly needing to manually input your details everytime you come back to divvy. Divvy was developed in meteor and derefore a unique session id is created for every user and saved in the users local browser for future access to the page. <b>*Divvy does not save anything else other then the session id!</b>
+
+		<h2 id="whatisdivvy">Authenticated Homepage</h2>
+		<p>Once you have authenticated to your user account you are redirected to the system homepage. There you will have access to your profile, posts, comments, answer, messaging system and much more. You will also be able to create posts about issues your are facing and that you would like quick solutions too.</p><br>
+
+		<img src="/images/guide/homepage.png" class="howtoDoc-img">
+
+		<h2 id="downloading">Divvy App</h2>
+		<p>Our divvy system was initially design as a web-based knowledge based system, but we soon realised that the need for app, specially in nowadays world of technology, is a need. That is why that we decided to developed an IOS and Android app. The apps have the same functionality as the system, allowing for fast interaction at the palm of your hand.</p><br>
+
+		<p>If you are interested in using the app you may find it in the app store or at google play. It is also possible to download the app directly from our official website <a href="#">here.</a> </p>
+	</div>
+</template>
+
+
+<template name="usingTheSystem">
+	<div class="howtoDoc">
+		<div class="title-page">Using the System</div>
+		<p>The getting started section of this guide will help you the user to get acquainted with our system, our plan is to teach you the very basic of using divvy the correct way. This system will only remain effective if users like you, use the system the way it was intended to.</p>
+	</div>
+</template>

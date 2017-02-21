@@ -1,0 +1,60 @@
+.formatted-text{
+	position: relative;
+	width: 100%;
+}
+
+.formatted-text h5{
+	font-weight: 500 !important;
+	padding: 10px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+}
+
+.formatted-text blockquote{
+	width: 100%;
+	background-color: #FFF8DC;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin: 0px;
+}
+
+.formatted-text pre{
+	position: relative;
+	padding: 10px;
+	padding-left: 15px;
+	padding-bottom: 15px;
+	width: 100%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: #f9f9f9;
+	color: black;
+}
+
+.formatted-text code {
+	position: relative;
+	top: -10px;
+}
+
+.formatted-text pre br, .formatted-text ul.list br{
+	display: none;
+}
+
+.formatted-text code br{
+	display: initial;
+}
+
+
+.formatted-text ul.list{
+	display: block;
+	padding-left: 40px;
+}
+
+.formatted-text ul.list li.bullet{
+	position: relative;
+	list-style: disc !important;
+}
+
+.formatted-text ul.list li.numbered{
+	position: relative;
+	list-style: decimal !important;
+}

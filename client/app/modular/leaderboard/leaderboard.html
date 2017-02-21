@@ -1,0 +1,29 @@
+<template name="leaderboard">
+	<div class="leaderboard-layout">
+		<div class="leaderboard-heading">
+			<i class="material-icons">verified_user</i>
+			<div>Leaderboard</div>
+		</div>
+		{{#each leader}}
+			{{> leaderUser}}
+		{{/each}}
+		<!-- {{#each leader}}
+			{{leaderUser}}
+		{{/each}} -->
+	</div>
+</template>
+
+
+<template name="leaderUser">
+	<div class="leader-item .js-leader-index">
+		<div class="leader-item-profile">
+			<img src="{{profile}}">
+			<!-- <div class="leader-item-profile-position">{{index}}</div> -->
+		</div>
+		<div class="leader-item-content">
+			<div>
+				<a herf="user/profile/{{userid}}">{{fname}} {{lname}}</a>
+			</div>
+		</div>
+	</div>
+</template>
